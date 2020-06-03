@@ -69,7 +69,6 @@ $count = mysqli_num_rows($run_cart);
 
 <th>Unit Price</th>
 
-<th>Size</th>
 
 <th colspan="1">Delete</th>
 
@@ -138,11 +137,6 @@ $<?php echo $only_price; ?>.00
 
 </td>
 
-<td>
-
-<?php echo $pro_size; ?>
-
-</td>
 
 <td>
 <input type="checkbox" name="remove[]" value="<?php echo $pro_id; ?>">
@@ -391,8 +385,8 @@ $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
 $pro_psp_price = $row_products['product_psp_price'];
 
-$pro_url = $row_products['product_url'];
 
+$pro_url = 'details.php?pro_id='.$row_products['product_url'];
 
 if($pro_label == "Sale" or $pro_label == "Gift"){
 

@@ -1,5 +1,5 @@
 <?php
-
-$con = mysqli_connect("localhost","aeriego2_ecom_st","Hardwork@123","aeriego2_ecom_store");
+error_reporting(E_ALL ^ E_NOTICE);  
+$con = mysqli_connect("localhost","root","","shop");
 
 ?>

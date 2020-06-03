@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+error_reporting(E_ALL ^ E_NOTICE);  
 include("includes/db.php");
 
 if(!isset($_SESSION['admin_email'])){

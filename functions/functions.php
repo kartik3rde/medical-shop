@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect("localhost","aeriego2_ecom_st","Hardwork@123","aeriego2_ecom_store");
+$db = mysqli_connect("localhost","root","","shop");
 
 /// IP address code starts /////
 function getRealUserIp(){
@@ -117,7 +117,7 @@ $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
 $pro_psp_price = $row_products['product_psp_price'];
 
-$pro_url = $row_products['product_url'];
+$pro_url = 'details.php?pro_id='.$row_products['product_url'];
 
 if($pro_label == "Sale" or $pro_label == "Gift"){
 
@@ -134,7 +134,7 @@ $product_price = "$$pro_price";
 
 }
 
-
+$product_label='';
 if($pro_label == ""){
 
 
@@ -328,7 +328,7 @@ $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
 $pro_psp_price = $row_products['product_psp_price'];
 
-$pro_url = $row_products['product_url'];
+$pro_url = 'details.php?pro_id='.$row_products['product_url'];
 
 
 if($pro_label == "Sale" or $pro_label == "Gift"){

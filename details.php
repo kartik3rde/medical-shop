@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+error_reporting(E_ALL ^ E_NOTICE);  
 include("includes/db.php");
 include("includes/header.php");
 include("functions/functions.php");
@@ -12,7 +12,7 @@ include("includes/main.php");
 <?php
 
 
-$product_id = @$_GET['pro_id'];
+$product_id = $_GET['pro_id'];
 
 $get_product = "select * from products where product_url='$product_id'";
 
@@ -57,7 +57,7 @@ $pro_video = $row_product['product_video'];
 
 $status = $row_product['status'];
 
-$pro_url = $row_product['product_url'];
+$pro_url = 'details.php?pro_id='.$row_product['product_url'];
 
 if($pro_label == ""){
 
@@ -222,11 +222,14 @@ else{
 $product_price = $pro_price;
 
 }
+
 $query = "insert into cart (p_id,ip_add,qty,p_price) values ('$p_id','$ip_add','$product_qty','$product_price')";
+
 if(isset($_SESSION['customer_email'])){
     $userEmail=$_SESSION['customer_email'];
     $query = "insert into cart (p_id,ip_add,qty,p_price,uId) values ('$p_id','$ip_add','$product_qty','$product_price','$userEmail')";
 }
+
 $run_query = mysqli_query($db,$query);
 
 echo "<script>window.open('$pro_url','_self')</script>";
@@ -615,7 +618,7 @@ $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
 $pro_psp_price = $row_products['product_psp_price'];
 
-$pro_url = $row_products['product_url'];
+$pro_url = 'details.php?pro_id='.$row_products['product_url'];
 
 
 if($pro_label == "Sale" or $pro_label == "Gift"){
@@ -757,7 +760,7 @@ $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
 $pro_psp_price = $row_products['product_psp_price'];
 
-$pro_url = $row_products['product_url'];
+$pro_url = 'details.php?pro_id='.$row_products['product_url'];
 
 
 if($pro_label == "Sale" or $pro_label == "Gift"){

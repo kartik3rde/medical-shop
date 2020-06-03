@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+error_reporting(E_ALL ^ E_NOTICE);  
 if(!isset($_SESSION['customer_email'])){
 
 echo "<script>window.open('../checkout.php','_self')</script>";
@@ -9,7 +9,7 @@ echo "<script>window.open('../checkout.php','_self')</script>";
 
 }else {
 
-include("includes/db.php");
+include("../includes/db.php");
 include("../includes/header.php");
 include("functions/functions.php");
 include("includes/main.php");
